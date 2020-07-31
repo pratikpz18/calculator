@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<meta charset="utf-8">
+</head>
+<style>
+	*{
+		margin:0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	body{
+		height: 100vh;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: #F4F4F4  ;
+	}
+	.container{
+		height: 70vh;
+		width: 25%;
+		border:2px solid grey;
+		background:#e5e5cc ;
+		box-shadow:0 0 5px grey;
+	}
+	.input{
+		margin:0 auto;
+		text-align: center;
+	}
+	.input input{
+		width: 96%;
+		margin-top: 5px;
+		padding: 8px;
+		font-size: 48px;
+		text-align: right;
+	}
+	.button{
+		margin-top: 3px;
+		text-align: center;
+	}
+	button{
+		width: 23%;
+		height: 11vh;
+		font-size: 20px;
+		outline: none;
+	}
+	button:nth-child(17) {
+		width: 47%;
+	}
+	@media  screen and (max-width: 1024px) {
+		.container{
+			height: 70vh;
+			width: 40%;
+			border:2px solid black;
+			margin:auto;
+			padding: auto;
+		}
+	}
+	@media  screen and (max-width: 728px) {
+		.container{
+			height: 70vh;
+			width: 50%;
+			border:2px solid black;
+			margin:auto;
+			padding: auto;
+		}
+	}
+</style>
+<body>
+	<div class="container">
+		<div class="input">
+			<input type="text" class="display" readonly="">
+		</div>
+		<div class="button">
+			<button onclick="clr()">AC</button>
+			<button onclick="Clear()">C</button>
+			<button value="/" onclick="dis('/')">/</button>
+			<button value="%" onclick="dis('%')">%</button>
+			<button value="7" onclick="dis('7')">7</button>
+			<button value="8" onclick="dis('8')">8</button>
+			<button value="9" onclick="dis('9')">9</button>
+			<button value="*" onclick="dis('*')">*</button>
+			<button value="4" onclick="dis('4')">4</button>
+			<button value="5" onclick="dis('5')">5</button>
+			<button value="6" onclick="dis('6')">6</button>
+			<button value="-" onclick="dis('-')">-</button>
+			<button value="1" onclick="dis('1')">1</button>
+			<button value="2" onclick="dis('2')">2</button>
+			<button value="3" onclick="dis('3')">3</button>
+			<button value="+" onclick="dis('+')">+</button>
+			<button value="0" onclick="dis('0')">0</button>
+			<button value="." onclick="dis('.')">.</button>
+			<button value="=" onclick="solve()">=</button>
+		</div>
+	</div>
+</body>
+<script>
+	let display = document.querySelector(".display");
+
+
+	function dis(val)
+	{
+		display.value += val ;
+	}
+	//function for evaluation
+	function solve()
+	{
+		let x = display.value ;
+		let y = eval(x)
+		if (Number.isInteger(y)) {
+			display.value = y
+		}
+		else {
+			display.value = y.toFixed(2);
+		}
+	}
+	function clr()
+	{
+		display.value = "" ;
+	}
+	function Clear()                
+	{ 
+	 	display.value = display.value.toString().slice(0,-1);
+	}
+</script>
+
+</script>
+</html>
